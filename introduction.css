@@ -1,0 +1,38 @@
+section.introduction {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+}
+
+section.introduction h2:first-of-type {
+  margin-top: 2rem;
+}
+
+section.introduction button {
+  width: fit-content;
+  align-self: center;
+  padding: 1rem;
+  text-transform: uppercase;
+  margin-top: 7rem;
+  border: 2px solid black;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 40%,
+    var(--retro-sky) 50%,
+    var(--retro-sky) 55%,
+    var(--retro-blue) 60%,
+    var(--retro-red) 100%
+  );
+  background-size: 350%;
+  background-position: 0% 0%;
+  transition: all 0.4s ease-in-out;
+}
+
+section.introduction button:hover {
+  background-position: 100% 100%;
+}

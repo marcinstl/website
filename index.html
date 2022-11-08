@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcin Stelmaszyk - Web Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="introduction.css" />
+    <link rel="stylesheet" href="skills.css" />
+    <link rel="stylesheet" href="slider.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="app.js" defer></script>
+    <script src="header.js" defer></script>
+    <script src="slider.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <a class="logo" href="/">Logo</a>
+        <span class="contact">
+          <a href="/contact">Contact me</a>
+        </span>
+      </div>
+    </header>
+    <main>
+      <section class="introduction">
+        <h1>Hi there!</h1>
+        <h2>I'm Marcin,</h2>
+        <h2>Software engineer specialized in web development</h2>
+        <button>Find out more</button>
+      </section>
+      <section class="slider">
+        <div class="slider-container">
+          <!-- <div class="side" id="hidden-side">
+            <span class="slider-grabber"></span>
+          </div> -->
+          <div id="left-side" class="side" onclick="setLeftSideWidth(event)">
+            <h1 class="side-title">Frontend</h1>
+            <div class="side-content">Frontend content</div>
+          </div>
+          <div id="right-side" class="side" onclick="setLeftSideWidth(event)">
+            <h1 class="side-title">Backend</h1>
+            <div class="side-content"></div>
+          </div>
+        </div>
+      </section>
+      <section class="skills">
+        <h3>whoami</h3>
+        <p>Hi! My name is Marcin Stelmaszyk and I love programming.</p>
+        <p>I started to work as a web developer back in 2017.</p>
+        <p>
+          My main focus is frontend developemt using Angular, TypeScript and
+          RxJs. I also know the basics of React.
+        </p>
+        <p>Currently I am working as a fullstack developer (Angular + .NET)</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  padding: 12px 24px;
+  transition: box-shadow 0.2s;
+  z-index: 99;
+}
+
+header > div {
+  display: flex;
+  max-width: var(--content-width);
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+header.border {
+  box-shadow: 0px 4px 17px -2px black;
+}
+
+header a.logo {
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header span.contact {
+  border: 2px solid black;
+  font-size: 1.5rem;
+  padding: 8px;
+  transform: translateY(-400%);
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+
+header span.contact.visible {
+  transform: translateY(0);
+}
+
+header span.contact a {
+  text-decoration: none;
+}
