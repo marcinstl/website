@@ -2,32 +2,13 @@ const left = document.querySelector("#left-side");
 const slider = document.querySelector(".slider-grabber");
 const root = document.querySelector(":root");
 const sliderContainer = document.querySelector(".slider-container");
+const sliderGrabber = document.querySelector(".slider-grabber");
 
 let terminalRunning = false;
 
 const backendTerminalXPos = document
   .querySelector(".terminal.terminal-dark")
   .getBoundingClientRect().x;
-
-const handleOnMove = (event) => {
-  const position = (event.clientX / window.innerWidth) * 100;
-  root.style.setProperty(`--left-side-width`, `${position}%`);
-
-  if (!terminalRunning && event.x <= backendTerminalXPos) typeWriter();
-
-  // const leftSideOpacity = position < 70 ? 1 : 0;
-  // root.style.setProperty(`--left-side-title-opacity`, leftSideOpacity);
-  // root.style.setProperty(
-  //   `--left-side-content-opacity`,
-  //   leftSideOpacity ? 0 : 1
-  // );
-
-  // document.querySelectorAll("#left-side .side-title");
-};
-
-document.onmousemove = (event) => handleOnMove(event);
-
-document.ontouchmove = (event) => handleOnMove(event.touches[0]);
 
 document.querySelector("#terminal-today-date").innerText =
   new Date().toString();
@@ -48,3 +29,41 @@ function typeWriter() {
     });
   }
 }
+
+let mouseIsDown = false;
+
+sliderGrabber.addEventListener("mousedown", function (e) {
+  e.preventDefault();
+  mouseIsDown = true;
+});
+
+sliderGrabber.addEventListener("touchstart", function (e) {
+  e.preventDefault();
+  mouseIsDown = true;
+});
+
+document.body.addEventListener("mouseup", () => (mouseIsDown = false));
+document.addEventListener("mouseup", () => (mouseIsDown = false));
+document.body.addEventListener("touchend", () => (mouseIsDown = false));
+document.addEventListener("touchend", () => (mouseIsDown = false));
+
+document.addEventListener("mousemove", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  handleMove(e);
+});
+document.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  handleMove(e.touches[0]);
+});
+
+const handleMove = (event) => {
+  if (mouseIsDown) {
+    const widthInPercent = (event.clientX / window.innerWidth) * 100;
+
+    const position = Math.min(Math.max(widthInPercent, 0), 100);
+    root.style.setProperty(`--left-side-width`, `${position}%`);
+    if (!terminalRunning && event.clientX <= backendTerminalXPos) typeWriter();
+  }
+};
