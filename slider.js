@@ -4,6 +4,45 @@ const root = document.querySelector(":root");
 const sliderContainer = document.querySelector(".slider-container");
 const sliderGrabber = document.querySelector(".slider-grabber");
 
+let animationObject = {
+  percent: 50,
+};
+
+// Setup the animation loop.
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
+requestAnimationFrame(animate);
+
+const easing = TWEEN.Easing.Cubic.InOut;
+const duration = 500;
+
+const tweenOne = new TWEEN.Tween(animationObject)
+  .to({ percent: 65 }, duration)
+  .easing(easing)
+  .onUpdate(function () {
+    root.style.setProperty(`--left-side-width`, `${animationObject.percent}%`);
+  });
+
+const tweenTwo = new TWEEN.Tween(animationObject)
+  .to({ percent: 35 }, duration)
+  .easing(easing)
+  .onUpdate(function () {
+    root.style.setProperty(`--left-side-width`, `${animationObject.percent}%`);
+  });
+
+const tweenThree = new TWEEN.Tween(animationObject)
+  .to({ percent: 50 }, duration)
+  .easing(easing)
+  .onUpdate(function () {
+    root.style.setProperty(`--left-side-width`, `${animationObject.percent}%`);
+  });
+
+tweenTwo.chain(tweenThree);
+
+tweenOne.chain(tweenTwo).start();
+
 let terminalRunning = false;
 
 const backendTerminalXPos = document

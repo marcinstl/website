@@ -36,6 +36,10 @@
   height: calc(100% - 30px);
 }
 
+.terminal-light {
+  box-shadow: none;
+}
+
 .terminal-light .terminal-title-bar {
   background: #b4b4b4;
 }
