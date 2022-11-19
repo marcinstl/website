@@ -53,7 +53,7 @@ document.addEventListener("mousemove", (e) => {
   handleMove(e);
 });
 document.addEventListener("touchmove", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   e.stopPropagation();
   handleMove(e.touches[0]);
 });
